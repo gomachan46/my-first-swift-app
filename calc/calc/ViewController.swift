@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func restart(_ segue: UIStoryboardSegue) {
-        updatePrice(price: 0)
+        initPrice()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,55 +32,62 @@ class ViewController: UIViewController {
     }
   
     @IBAction func tap1Button(_ sender: Any) {
-        updatePrice(price: currentPrice() + 1)
+        updatePrice(price: "1")
     }
     
     @IBAction func tap2Button(_ sender: Any) {
-        updatePrice(price: currentPrice() + 2)
+        updatePrice(price: "2")
     }
     
     @IBAction func tap3Button(_ sender: Any) {
-        updatePrice(price: currentPrice() + 3)
+        updatePrice(price: "3")
     }
     
     @IBAction func tap4Button(_ sender: Any) {
-        updatePrice(price: currentPrice() + 4)
+        updatePrice(price: "4")
     }
     
     @IBAction func tap5Button(_ sender: Any) {
-        updatePrice(price: currentPrice() + 5)
+        updatePrice(price: "5")
     }
     
     @IBAction func tap6Button(_ sender: Any) {
-        updatePrice(price: currentPrice() + 6)
+        updatePrice(price: "6")
     }
     
     @IBAction func tap7Button(_ sender: Any) {
-        updatePrice(price: currentPrice() + 7)
+        updatePrice(price: "7")
     }
     
     @IBAction func tap8Button(_ sender: Any) {
-        updatePrice(price: currentPrice() + 8)
+        updatePrice(price: "8")
     }
     
     @IBAction func tap9Button(_ sender: Any) {
-        updatePrice(price: currentPrice() + 9)
+        updatePrice(price: "9")
     }
     
     @IBAction func tap0Button(_ sender: Any) {
-        updatePrice(price: currentPrice() * 10)
+        updatePrice(price: "0")
     }
     
     @IBAction func tap00Button(_ sender: Any) {
-        updatePrice(price: currentPrice() * 100)
+        updatePrice(price: "00")
     }
     
     @IBAction func tapCButton(_ sender: Any) {
-        updatePrice(price: 0)
+        initPrice()
     }
     
-    private func updatePrice(price: Int) {
-        priceField.text = "\(price)"
+    private func initPrice() {
+        priceField.text = "0"
+    }
+    
+    private func updatePrice(price: String) {
+        // Int()することで"01"のような文字列を扱えるようにしている
+        if let updatedPrice = Int("\(currentPrice())" + price) {
+            priceField.text = "\(updatedPrice)"
+        }
     }
     
     private func currentPrice() -> Int {
