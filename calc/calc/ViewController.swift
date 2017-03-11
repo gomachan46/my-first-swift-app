@@ -25,6 +25,11 @@ class ViewController: UIViewController {
     @IBAction func restart(_ segue: UIStoryboardSegue) {
         updatePrice(price: 0)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let viewController = segue.destination as! PercentViewController
+        viewController.price = currentPrice()
+    }
   
     @IBAction func tap1Button(_ sender: Any) {
         updatePrice(price: currentPrice() + 1)

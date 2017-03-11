@@ -11,6 +11,7 @@ import UIKit
 class PercentViewController: UIViewController {
   
     @IBOutlet weak var percentField: UITextField!
+    var price: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,12 @@ class PercentViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let viewController = segue.destination as! ResultViewController
+        viewController.price = price
+        viewController.percent = currentPercent()
     }
     
     @IBAction func tap1Button(_ sender: Any) {
