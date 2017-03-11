@@ -29,60 +29,70 @@ class PercentViewController: UIViewController {
         viewController.price = price
         viewController.percent = currentPercent()
     }
-    
     @IBAction func tap1Button(_ sender: Any) {
-        updatePercent(percent: currentPercent() + 1)
+        updatePercent(input: "1")
     }
-
+    
     @IBAction func tap2Button(_ sender: Any) {
-        updatePercent(percent: currentPercent() + 2)
+        updatePercent(input: "2")
     }
     
     @IBAction func tap3Button(_ sender: Any) {
-        updatePercent(percent: currentPercent() + 3)
+        updatePercent(input: "3")
     }
     
     @IBAction func tap4Button(_ sender: Any) {
-        updatePercent(percent: currentPercent() + 4)
+        updatePercent(input: "4")
     }
     
     @IBAction func tap5Button(_ sender: Any) {
-        updatePercent(percent: currentPercent() + 5)
+        updatePercent(input: "5")
     }
     
     @IBAction func tap6Button(_ sender: Any) {
-        updatePercent(percent: currentPercent() + 6)
+        updatePercent(input: "6")
     }
     
     @IBAction func tap7Button(_ sender: Any) {
-        updatePercent(percent: currentPercent() + 7)
+        updatePercent(input: "7")
     }
     
     @IBAction func tap8Button(_ sender: Any) {
-        updatePercent(percent: currentPercent() + 8)
+        updatePercent(input: "8")
     }
     
     @IBAction func tap9Button(_ sender: Any) {
-        updatePercent(percent: currentPercent() + 9)
+        updatePercent(input: "9")
     }
     
     @IBAction func tap0Button(_ sender: Any) {
-        updatePercent(percent: currentPercent() * 10)
+        updatePercent(input: "0")
+    }
+    
+    @IBAction func tap00Button(_ sender: Any) {
+        updatePercent(input: "00")
     }
     
     @IBAction func tapCButton(_ sender: Any) {
-        updatePercent(percent: 0)
+        initPercent()
     }
     
-    private func updatePercent(percent: Int) {
-        percentField.text = "\(percent)"
+    private func initPercent() {
+        percentField.text = "0"
+    }
+    
+    private func updatePercent(input: String) {
+        // Int()することで"01"のような文字列を扱えるようにしている
+        if let updatedPercent = Int("\(currentPercent())" + input) {
+            percentField.text = "\(updatedPercent)"
+        }
     }
     
     private func currentPercent() -> Int {
         guard let currentPercent = Int(percentField.text!) else {
             return 0
         }
-      
+        
         return currentPercent
     }
 }

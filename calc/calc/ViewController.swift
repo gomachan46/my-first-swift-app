@@ -32,47 +32,47 @@ class ViewController: UIViewController {
     }
   
     @IBAction func tap1Button(_ sender: Any) {
-        updatePrice(price: "1")
+        updatePrice(input: "1")
     }
     
     @IBAction func tap2Button(_ sender: Any) {
-        updatePrice(price: "2")
+        updatePrice(input: "2")
     }
     
     @IBAction func tap3Button(_ sender: Any) {
-        updatePrice(price: "3")
+        updatePrice(input: "3")
     }
     
     @IBAction func tap4Button(_ sender: Any) {
-        updatePrice(price: "4")
+        updatePrice(input: "4")
     }
     
     @IBAction func tap5Button(_ sender: Any) {
-        updatePrice(price: "5")
+        updatePrice(input: "5")
     }
     
     @IBAction func tap6Button(_ sender: Any) {
-        updatePrice(price: "6")
+        updatePrice(input: "6")
     }
     
     @IBAction func tap7Button(_ sender: Any) {
-        updatePrice(price: "7")
+        updatePrice(input: "7")
     }
     
     @IBAction func tap8Button(_ sender: Any) {
-        updatePrice(price: "8")
+        updatePrice(input: "8")
     }
     
     @IBAction func tap9Button(_ sender: Any) {
-        updatePrice(price: "9")
+        updatePrice(input: "9")
     }
     
     @IBAction func tap0Button(_ sender: Any) {
-        updatePrice(price: "0")
+        updatePrice(input: "0")
     }
     
     @IBAction func tap00Button(_ sender: Any) {
-        updatePrice(price: "00")
+        updatePrice(input: "00")
     }
     
     @IBAction func tapCButton(_ sender: Any) {
@@ -83,9 +83,9 @@ class ViewController: UIViewController {
         priceField.text = "0"
     }
     
-    private func updatePrice(price: String) {
+    private func updatePrice(input: String) {
         // Int()することで"01"のような文字列を扱えるようにしている
-        if let updatedPrice = Int("\(currentPrice())" + price) {
+        if let updatedPrice = Int("\(currentPrice())" + input) {
             priceField.text = "\(updatedPrice)"
         }
     }
